@@ -1,0 +1,19 @@
+The 8051 architecture provides many functions (central processing unit (CPU), random access memory (RAM), read-only memory (ROM), input/output (I/O) ports, serial port, interrupt control, timers) in one package:
+
+    8-bit arithmetic logic unit (ALU) and accumulator, 8-bit registers (one 16-bit register with special move instructions), 8-bit data bus and 2×16-bit address bus, program counter, data pointer, and related 8/11/16-bit operations; hence it is mainly an 8-bit microcontroller
+    Boolean processor with 17 instructions, 1-bit accumulator, 32 registers (4 bit-addressable 8-bit) and up to 144 special 1 bit-addressable RAM variables (18 bit-addressable 8-bit)[4]
+    Multiply, divide and compare instructions
+    4 fast switchable register banks with 8 registers each (memory mapped)
+    Fast interrupt with optional register bank switching
+    Interrupts and threads with selectable priority[5]
+    128 or 256 bytes of on-chip RAM (IRAM)
+    Dual 16-bit address bus; it can access 2×216 memory locations: 64 KB (65,536 locations) each of ROM (PMEM) and external RAM (XRAM)
+    On-chip ROM (not included on 803x variants)
+    Four 8-bit bi-directional input/output ports, bit addressable
+    UART (serial port)
+    Two 16-bit counter/timers
+    Power saving mode (on some derivatives)
+
+One feature of the 8051 core is the inclusion of a boolean processing engine which allows bit-level boolean logic operations to be carried out directly and efficiently on select internal registers, ports and select RAM locations. Another feature is the inclusion of four bank selectable working register sets which greatly reduce the amount of time required to perform the context switches to enter and leave interrupt service routines. With one instruction, the 8051 can switch register banks, avoiding the time consuming task of transferring the critical registers to RAM.
+
+Once a UART, and a timer if necessary, has been configured, the programmer needs only write a simple interrupt routine to refill the send shift register whenever the last bit is shifted out by the UART and/or empty the full receive shift register (copy the data somewhere else). The main program then performs serial reads and writes simply by reading and writing 8-bit data to stacks. 
